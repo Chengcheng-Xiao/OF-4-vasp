@@ -2,6 +2,7 @@
 #Filename: cal_OPT.py
 import math
 import os
+import axis_chg.py
 
 print "##############################################################################\n#This program only produces POSCAR accroding to your specified value(s)\n#\n#Creat dirctories in CURRENT dirctory with name of different lattice parameter\n#\n#WARNING this program is for lattice parameter calclulation ONLY! \n##############################################################################\n"
 
