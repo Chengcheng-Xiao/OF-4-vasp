@@ -2,36 +2,12 @@
 #Filename: cal_OPT.py
 import math
 import os
-import axis_chg.py
+import sys
+sys.path.append(os.path.abspath("../sub/"))
+import OF_sub
+from OF_sub import frange
 
 print "##############################################################################\n#This program only produces POSCAR accroding to your specified value(s)\n#\n#Creat dirctories in CURRENT dirctory with name of different lattice parameter\n#\n#WARNING this program is for lattice parameter calclulation ONLY! \n##############################################################################\n"
-
-def frange(start, end=None, inc=None):
-    "A range function, that does accept float increments..."
-
-    if end == None:
-        end = start + 0.0
-        start = 0.0
-
-    if inc == None:
-        inc = 1.0
-
-    L = []
-    while 1:
-        next = start + len(L) * inc
-        if inc > 0 and next == end+0.000000000000001:
-            L.append(next)
-            break
-        elif inc > 0 and next > end+0.000000000000001:
-            break
-        elif inc < 0 and next == end-0.000000000000001:
-            L.append(next)
-            break
-        elif inc < 0 and next < end-0.000000000000001:
-            break
-        L.append(next)
-
-    return L
 
 #a_min=raw_input("input the value of a_min: ")
 #a_max=raw_input("input the value of a_max: ")
@@ -44,6 +20,7 @@ def frange(start, end=None, inc=None):
 #c_step==raw_input("input the value of b_step: ")
 submitjobloop=1
 submitjob = "WTF"
+submit_name = "null"
 while submitjobloop==1:
     if submitjob=="yes":
         submit_name="YES"
@@ -55,7 +32,7 @@ while submitjobloop==1:
     else:
         submitjob=raw_input("Do you want to submit all jobs (yes/no):")
 
-if submit_name="YES":
+if submit_name=="YES":
     submit_name=raw_input("Enter the name of your job_submittion script[e.g. run.sh](wether you like it or not):")
 else:
     submit_name=" "
@@ -152,7 +129,7 @@ if a_org_n != b_org_n:
         b_step=raw_input("input the value of b_step: ")
         c_min=raw_input("input the value of c_min: ")
         c_max=raw_input("input the value of c_max: ")
-        c_step=raw_input("input the value of b_step: ")
+        c_step=raw_input("input the value of c_step: ")
 
 #convert data type
 a_min=float(a_min)
@@ -174,7 +151,7 @@ if a_org_n == b_org_n:
         #=====================================
         abc_relation="a=b=c"
         for a_sum in frange(a_min,a_max,a_step):
-            axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
+            OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
 
 
             #======================================
@@ -262,7 +239,7 @@ if a_org_n == b_org_n:
         abc_relation="a=b=c"
         for a_sum in frange(a_min,a_max,a_step):
             for c_sum in frange(c_min,c_max,c_step):
-                axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
+                OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
 
                 #======================================
                 fileHandle = open('POSCAR','a')
@@ -351,7 +328,7 @@ if a_org_n == c_org_n:
         abc_relation="a=c!=b"
         for a_sum in frange(a_min,a_max,a_step):
             for b_sum in frange(b_min,b_max,b_step):
-                axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
+                OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
 
                 #======================================
                 fileHandle = open('POSCAR','a')
@@ -440,7 +417,7 @@ if a_org_n != b_org_n:
         abc_relation="a!=b=c"
         for a_sum in frange(a_min,a_max,a_step):
             for b_sum in frange(b_min,b_max,b_step):
-                axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
+                OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
                 #======================================
                 fileHandle = open('POSCAR','a')
                 #fileHandle = open(str(a_sum)+str(b_sum)+str(c_sum),'a') #TEST PURPOSE ONLY
@@ -529,7 +506,7 @@ if a_org_n != b_org_n:
         for a_sum in frange(a_min,a_max,a_step):
             for b_sum in frange(b_min,b_max,b_step):
                 for c_sum in frange(c_min,c_max,c_step):
-                    axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
+                    OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
 
                     #======================================
                     fileHandle = open('POSCAR','a')
