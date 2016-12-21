@@ -45,6 +45,7 @@ submitjobloop=1
 submitjob = "WTF"
 while submitjobloop==1:
     if submitjob=="yes":
+        submit_name="YES"
         submit_script=raw_input("Enter the job submition script:")
         submitjobloop=0
     elif submitjob=="no":
@@ -53,7 +54,10 @@ while submitjobloop==1:
     else:
         submitjob=raw_input("Do you want to submit all jobs (yes/no):")
 
-submit_name=raw_input("Enter the name of your job_submittion script[e.g. run.sh](wether you like it or not):")
+if submit_name="YES":
+    submit_name=raw_input("Enter the name of your job_submittion script[e.g. run.sh](wether you like it or not):")
+else:
+    submit_name=" "
 
 POSCAR_file=raw_input("input the name of POSCAR source: ")
 print ''

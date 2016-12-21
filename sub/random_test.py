@@ -1,6 +1,6 @@
 def ram_shuffel(objects,mass):
     import random
-    "maintaing two sets number constant and shuffle them"
+    "maintaing two sets number constant and shuffle them, use 'randomized_array' for output"
     randomized_array=[]
     t=0
     x=1
@@ -16,4 +16,4 @@ def ram_shuffel(objects,mass):
     
     return randomized_array
 
-print ram_shuffel(["f","s"],[5,6])
+#print ram_shuffel(["f","s"],[5,6])

@@ -26,4 +26,4 @@ def frange(start, end=None, inc=None):
     return L
 
 #test this sub
-print frange(2,3,0.01)
+#print frange(2,3,0.01)
