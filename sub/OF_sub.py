@@ -121,3 +121,42 @@ def frange(start, end=None, inc=None):
 #print frange(2,3,0.01)
 
 ############################################################################################
+def gen_data(extration=None,extration_slash=None):
+    devide = ','
+    extration_all = devide.join(extration)
+    extration_slash_all = devide.join(extration_slash)
+    #print extration_all
+    file_extration = open('data_extration.py','a')
+    file_extration.write('import os'+'\n')
+    file_extration.write('import subprocess'+'\n')
+    file_extration.write('data_all = []'+'\n')
+    file_extration.write('all_param = ['+extration_all+']'+'\n')
+    file_extration.write('for i in ('+extration_slash_all+'):'+'\n')
+    #        file_extration.write('    print i'+'\n')
+    file_extration.write('    os.chdir(i)'+'\n')
+    file_extration.write('''    proc = subprocess.Popen("grep 'energy(sigma->0) =' OUTCAR | tail -1 | awk  -F '      '  '{print $3}'",stdout=subprocess.PIPE,shell=True)'''+'\n')
+    file_extration.write('    (out, err) = proc.communicate()'+'\n')
+    file_extration.write('''    outwithoutreturn = out.rstrip('''+r"'\n'"+")"+'\n')
+    #        file_extration.write('''    out_tot =outwithoutreturn'''+'\n')
+    file_extration.write('    data_all.append(outwithoutreturn)'+'\n')
+    file_extration.write('''    conv=os.system("grep 'reached required accuracy - stopping structural energy minimisation' OUTCAR >/dev/null")'''+"\n")
+    file_extration.write('    if conv!=0:'+'\n')
+    file_extration.write("        print ''' -----------------------------------------------------------------------------"+'\n')
+    file_extration.write("|                                                                             |"+"\n")
+    file_extration.write("|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |"+"\n")
+    file_extration.write("|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |"+"\n")
+    file_extration.write("|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |"+"\n")
+    file_extration.write("|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |"+"\n")
+    file_extration.write("|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |"+"\n")
+    file_extration.write("|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |"+"\n")
+    file_extration.write("|                                                                             |"+"\n")
+    file_extration.write("|                                                                             |"+"\n")
+    file_extration.write("'''+"+'''"|          WARNING:"+" "+i+" "+"Did not reach the required EDIFFG!           |"+'''+r"'\n'"+"+''' ----------------------------------------------------------------------------- '''"+'\n')
+    file_extration.write("    os.chdir('../')"+'\n')
+    file_extration.write("length = len(all_param)"+'\n')
+    file_extration.write("file_data = open('data.dat','a')"+'\n')
+    file_extration.write("for i_d in range(0,length,1):"+'\n')
+    file_extration.write("    file_data.write(all_param[i_d]+' '+data_all[i_d]+"+r"'\n'"+")"+'\n')
+
+
+#################################################################################
