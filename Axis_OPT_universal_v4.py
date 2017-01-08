@@ -195,7 +195,7 @@ if a_org_n == b_org_n:
     else:
         print 'a=b!=c\n'
         #=====================================
-        abc_relation="a=b=c"
+        abc_relation="a=b!=c"
         for a_sum in frange(a_min,a_max,a_step):
             for c_sum in frange(c_min,c_max,c_step):
                 OF_sub.axis_chg(abc_relation,a_sum,b_sum,c_sum,data)
