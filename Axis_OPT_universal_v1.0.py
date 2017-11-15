@@ -175,7 +175,7 @@ while submitjobloop==1:
                 print "\n"
                 break
             elif submitjob == "no" :
-                print "\n"
+                #print "\n"
                 break
             else:
                 continue
@@ -189,7 +189,7 @@ if submit_name=="YES":
             print "Please re_enter!\n"
             continue
         else:
-            print "\n"
+            #print "\n"
             break
 
 
