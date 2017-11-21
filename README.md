@@ -5,8 +5,8 @@ This program was written with Python
 
 This program can do:
 
-    1.Check POSCAR "symmetry" (Actually only determins wether lattice paremeters are the same).
-    2.Change lattice parameters and creat correspond POSCAR.
-    3.Submit Geometry optmization job.
-    4.After calculation complete, check for convergence and out put "data.dat" contianing energy data and lattice parameters.
-    5.Fit lattice parameters and print the optmized one (not done)
+    1.Check POSCAR "symmetry" (This only determins wether lattice paremeters' length are the same).
+    2.Change lattice parameters and creat corresponding POSCAR.
+    3.Submit Geometry optmization job (can support different submitting methods).
+    4.After calculations, check for convergence and out-put "data.dat" file which contians energy data and lattice parameters.
+    5.Fit lattice parameters using quadratic function and print the optmized one.
