@@ -18,7 +18,6 @@ The following newest library are needed:
 numpy
 readline (or pyreadline for windows machine, However, Linux are preferred)
 matplotlib
-
 ```
 
 ### Installing
