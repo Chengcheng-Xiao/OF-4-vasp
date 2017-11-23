@@ -74,10 +74,12 @@ python Quadratic_fit.py
 to fitting the energy surface with quadratic function
 
 Addition notes:
-    1.Original POSCAR file can not be named "POSCAR" since program will automatically delete any file named after it.
-    2.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. Use this at your own discretion.
+
+*1.Original POSCAR file can not be named "POSCAR" since program will automatically delete any file named after it.
+*2.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. Use this at your own discretion.
 
 
 ###Example result:
-Fitted result: 1.53253625 *x^2+ 0.597441333335 *y^2+ 0.981367600002 *x*y+ -17.79265322 *x+ -9.85541972002 *y+ 44.2136277874
-Minimum located: x= 4.29306080482  y= 4.72209456102
+
+*Fitted result: 1.533*x^2 + 0.597*y^2 + 0.981*x*y - 17.793*x - 9.855*y + 44.214
+*Minimum located: x= 4.293  y= 4.722
