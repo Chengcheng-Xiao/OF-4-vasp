@@ -8,6 +8,12 @@ This program can:
     4.After calculations, check for convergence and out-put "data.dat" file which contains energy data and lattice parameters.
     5.Fit lattice parameters using quadratic function and print the optimized one.
 
+## WHY?
+Indeed, VASP can utilise "external pressure" to determin optimum lattice constant, simply set `ISIF=3` in the `INCAR` file. However, for 2D and 1D materials, this method tends to fail because extra vacuum layer could induce a large "external pressure",  resulting in a "wrong" strucuture. On the other hand, this program can be easily adopted to study strain effects on materials. 
+
+## HOW?
+Program changes crystal lattice vectors' length (so that one can easily perserve original symmetry), submit the job, then extraxts energies from all configs' last ionic step and fit it with a quadratic function.
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine or remote cluster for development and testing purposes.
 
@@ -76,7 +82,9 @@ Addition notes:
 
 *1.Original POSCAR file can not be named "POSCAR" since program will automatically delete any file named after it.
 
-*2.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. **Use this at your own discretion.**
+*2.Program does not automatically do a scf procedure with `ISMEAR=-5`, so the final energy could be different.
+
+*3.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. **Use this at your own discretion.**
 
 
 ### Example result:
@@ -84,3 +92,4 @@ Addition notes:
 Fitted result: 1.533x^2 + 0.597*y^2 + 0.981*x*y - 17.793*x - 9.855*y + 44.214.
 Minimum located: x= 4.293  y= 4.722.
 ```
+
