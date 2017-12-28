@@ -29,10 +29,10 @@ def main():
     if data[0,0] == data[-1,0]:
         print "x axis same"
         dimension_x = 1
-    elif data[0,1] == data[-1,1]:
+    if data[0,1] == data[-1,1]:
         print "y axis same"
         dimension_y = 1
-    elif data[0,2] == data[-1,2]:
+    if data[0,2] == data[-1,2]:
         print "z axis same"
         dimension_z = 1
 
