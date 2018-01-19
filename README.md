@@ -84,7 +84,9 @@ Addition notes:
 
 *2.Program does not automatically do a scf procedure with `ISMEAR=-5`, so the final energy could be different.
 
-*3.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. **Use this at your own discretion.**
+*3.__To keep some axis fix during optmization, simply put in the perfered cell length and set steps to 1.__
+
+*4.Quadratic function are only applicable if lattice parameters do not differ much from the optimum one. **Use this at your own discretion.**
 
 
 ### Example result:
