@@ -4,21 +4,22 @@ This program can:
 
     1.Check POSCAR "symmetry" (This only determines wether lattice parameters' length are the same).
     2.Change lattice parameters and create corresponding POSCAR.
-    3.Submit Geometry optimization job (can support different submitting methods like "Portabl Batch System" (PBS) and Slurm).
+    3.Submit Geometry optimization job (can support different submitting methods like "Portabl Batch System" (PBS) and "Slurm").
     4.After calculations, check for convergence and out-put "data.dat" file which contains energy data and lattice parameters.
     5.Fit lattice parameters using quadratic function and print the optimized one.
 
 ## WHY?
-Indeed, VASP can utilise "external pressure" to determin optimum lattice constant, simply set `ISIF=3` in the `INCAR` file. However, for 2D and 1D materials, this method tends to fail because extra vacuum layer could induce a large "external pressure",  resulting in a "wrong" strucuture. On the other hand, this program can be easily adopted to study strain effects on materials. 
+Indeed, VASP can utilize "external pressure" to determin optimum lattice constants, simply set `ISIF=3` in the `INCAR` file. However, for 2D and 1D materials, this method tends to fail because extra vacuum layer could induce a large "external pressure",  resulting in a "wrong" strucuture. Other method such as [🔗](https://github.com/Chengcheng-Xiao/VASP_OPT_AXIS) can also get the optimum lattice constants but this code can be much more accurate and robust. On the other hand, this program can be easily adopted to study strain effects on materials.
+
 
 ## HOW?
-Program changes crystal lattice vectors' length (so that one can easily perserve original symmetry), submit the job, then extraxts energies from all configs' last ionic step and fit it with a quadratic function.
+Program changes crystal lattice vectors' length (so that one can easily perserve original symmetry), submit the job, then extract energies from all configuration's last ionic step and fit it with a quadratic function.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine or remote cluster for development and testing purposes.
 
 ### Prerequisites
-This program was written with Python2.7
+This program was written with Python 2.7
 The following newest library are needed:
 ```
 numpy
@@ -82,7 +83,7 @@ Addition notes:
 
 *1.Original POSCAR file can not be named "POSCAR" since program will automatically delete any file named after it.
 
-*2.Program does not automatically do a scf procedure with `ISMEAR=-5`, so the final energy could be different.
+*2.Program does not automatically do a scf procedure with `ISMEAR=-5`, so the final energy could be different. This may have little impact on the final results, so it is recommanded to do a scf calculation after the optimization.
 
 *3.__To keep some axis fix during optmization, simply put in the perfered cell length and set steps to 1.__
 
@@ -94,4 +95,3 @@ Addition notes:
 Fitted result: 1.533x^2 + 0.597*y^2 + 0.981*x*y - 17.793*x - 9.855*y + 44.214.
 Minimum located: x= 4.293  y= 4.722.
 ```
-

@@ -307,6 +307,7 @@ print "#########################################################################
 #   Creat dirctories in CURRENT dirctory with name of different lattice parameter   #\n\
 #                                                                                   #\n\
 #   WARNING this program is for lattice parameter calclulation ONLY!                #\n\
+#   INCAR POTCAR KPOINTS and vdw_kernel.bindat will automatically be copoied.       #\n\
 #####################################################################################\n"
 
 submitjobloop=1
@@ -393,10 +394,10 @@ while True:
     try:
         if a_org_n == b_org_n:
             if a_org_n == c_org_n:
-                print 'a=b=c\n'
-                axis_min=float(raw_input("Input the value of axis_min(all): "))
-                axis_max=float(raw_input("Input the value of axis_max(all): "))
-                axis_step=float(raw_input("How many steps(all): "))
+                #print 'a=b=c\n'
+                axis_min=float(raw_input("Input the value of axis_min(FOR ALL AXIS): "))
+                axis_max=float(raw_input("Input the value of axis_max(FOR ALL AXIS): "))
+                axis_step=float(raw_input("How many steps(FOR ALL AXIS): "))
                 #set all to same=====================
                 a_step=axis_step
                 a_min=axis_min
@@ -414,10 +415,10 @@ while True:
                     print "re_enter!"
                     continue
             else:
-                print 'a=b!=c\n'
-                ab_min=float(raw_input("Input the value of a_min and b_min(SAME A AND B): "))
-                ab_max=float(raw_input("Input the value of a_max and b_max(SAME A AND B): "))
-                ab_step=float(raw_input("How many steps for a_step and b_step(SAME A AND B): "))
+                #print 'a=b!=c\n'
+                ab_min=float(raw_input("Input the value of a/b_min(SAME A AND B): "))
+                ab_max=float(raw_input("Input the value of a/b_max(SAME A AND B): "))
+                ab_step=float(raw_input("How many steps for a/b_step(SAME A AND B): "))
                 a_step=ab_step
                 a_min=ab_min
                 a_max=ab_max
@@ -435,10 +436,10 @@ while True:
                     continue
         if a_org_n == c_org_n:
             if b_org_n != c_org_n:
-                print 'a=c!=b\n'
-                ac_min=float(raw_input("Input the value of a_min and c_min(SAME A AND C): "))
-                ac_max=float(raw_input("Input the value of a_max and c_max(SAME A AND C): "))
-                ac_step=float(raw_input("How many steps for a_step and c_step(SAME A AND C): "))
+                #print 'a=c!=b\n'
+                ac_min=float(raw_input("Input the value of a/c_min(SAME A AND C): "))
+                ac_max=float(raw_input("Input the value of a/c_max(SAME A AND C): "))
+                ac_step=float(raw_input("How many steps for a/c_step(SAME A AND C): "))
                 a_step=ac_step
                 a_min=ac_min
                 a_max=ac_max
@@ -456,10 +457,10 @@ while True:
                     continue
         if a_org_n != b_org_n:
             if b_org_n == c_org_n:
-                print 'a!=b=c\n'
-                bc_min=float(raw_input("Input the value of b_min and c_min(SAME B AND C): "))
-                bc_max=float(raw_input("Input the value of b_max and c_max(SAME B AND C): "))
-                bc_step=float(raw_input("How many steps for b_step and c_step(SAME B AND C): "))
+                #print 'a!=b=c\n'
+                bc_min=float(raw_input("Input the value of b/c_min(SAME B AND C): "))
+                bc_max=float(raw_input("Input the value of b/c_max(SAME B AND C): "))
+                bc_step=float(raw_input("How many steps for b/c_step(SAME B AND C): "))
                 b_step=bc_step
                 b_min=bc_min
                 b_max=bc_max
@@ -476,7 +477,7 @@ while True:
                     print "re_enter!"
                     continue
             else:
-                print 'All axis length are different\n'
+                #print 'All axis length are different\n'
                 a_min=float(raw_input("Input the value of a_min: "))
                 a_max=float(raw_input("Input the value of a_max: "))
                 a_step=float(raw_input("How many steps for a_step: "))
